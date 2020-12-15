@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">MyFavCars</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_title">Welcome to your FavCars</string>
+    <string name="label_username">User name</string>
+    <string name="label_password">Password</string>
+    <string name="btn_signin">Sign in</string>
+    <string name="btn_signup">Sign up</string>
 </resources>
