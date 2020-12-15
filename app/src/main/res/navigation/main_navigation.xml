@@ -24,6 +24,9 @@
         <argument
             android:name="argUserName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_instructionsFragment"
+            app:destination="@id/instructionsFragment" />
     </fragment>
     <fragment
         android:id="@+id/carsListFragment"
@@ -33,5 +36,16 @@
         <argument
             android:name="argUserName"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/instructionsFragment"
+        android:name="com.walidkh.android.myfavcars.info.InstructionsFragment"
+        android:label="fragment_instructions"
+        tools:layout="@layout/fragment_instructions" >
+        <action
+            android:id="@+id/action_instructionsFragment_to_carsListFragment"
+            app:destination="@id/carsListFragment"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 </navigation>
