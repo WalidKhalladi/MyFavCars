@@ -13,7 +13,7 @@ class DetailsViewModel : ViewModel() {
 
     private val _onCancel = MutableLiveData<Boolean>()
     val onCancel : LiveData<Boolean>
-        get() = _onConfirm
+        get() = _onCancel
 
 
     fun onConfirmButtonNavigation() {
