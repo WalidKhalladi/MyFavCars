@@ -36,6 +36,14 @@
         <argument
             android:name="argUserName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_carsListFragment_to_addCarFragment"
+            app:destination="@id/addCarFragment" />
+        <action
+            android:id="@+id/action_carsListFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/instructionsFragment"
@@ -47,5 +55,23 @@
             app:destination="@id/carsListFragment"
             app:popUpTo="@id/welcomeFragment"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_instructionsFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCarFragment"
+        android:name="com.walidkh.android.myfavcars.details.AddCarFragment"
+        android:label="AddCarFragment" >
+        <action
+            android:id="@+id/action_addCarFragment_to_loginFragment2"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_addCarFragment_to_carsListFragment"
+            app:destination="@id/carsListFragment"
+            app:popUpTo="@id/carsListFragment"
+            app:popUpToInclusive="true"/>
     </fragment>
 </navigation>
