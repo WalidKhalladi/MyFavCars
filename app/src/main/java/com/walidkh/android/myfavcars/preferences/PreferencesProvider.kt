@@ -31,7 +31,7 @@ class PreferencesProvider(
         return Gson().fromJson<User>(userString, User::class.java) == null
     }
 
-    fun userConnected(isConnected: Boolean) {
+    fun isUserConnected(isConnected: Boolean) {
         preference.edit()
             .putBoolean(CURRENT_SESSION_STATUS, isConnected)
             .apply()
