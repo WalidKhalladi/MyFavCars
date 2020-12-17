@@ -7,4 +7,40 @@
     <string name="label_password">Password</string>
     <string name="btn_signin">Sign in</string>
     <string name="btn_signup">Sign up</string>
+    <string name="welcome_title">Welcome %1$s</string>
+    <string name="welcome_btn_text">Next</string>
+    <string name="welcome_details_text">this is the welcome details text, this is a very long
+        text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long
+        text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long
+        text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long
+        text this is a very long text this is a very long text this is a very
+        long text this is a very long text this is a very long text this is a very
+        long text this is a very long text</string>
+    <string name="instruction_btn_text">Start</string>
+    <string name="add_car_btn_description">This button will open the details page to add a new car entry</string>
+    <string name="logout">Logout</string>
+    <string name="carNameAddLabel" >Name: </string>
+    <string name="cancel_btn">Cancel</string>
+    <string name="confirm_btn">Confirm</string>
+    <string name="car_name_label">Name: </string>
+    <string name="car_brand_label">Brand: </string>
+    <string name="car_type_label">Type: </string>
+    <string name="car_horse_power_label">Horse power: </string>
+    <string name="car_description_label">Description: </string>
+    <string-array name="carTypes">
+        <item>UNKNOWN</item>
+        <item>SEDAN</item>
+        <item>COUPE</item>
+        <item>CONVERTIBLE</item>
+        <item>HATCHBACK</item>
+        <item>SUV</item>
+        <item>PICKUP</item>
+        <item>MINIVAN</item>
+    </string-array>
 </resources>
