@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.walidkh.android.myfavcars.utils.BindingUtils"/>
+
+        <variable
+            name="sharedViewModel"
+            type="com.walidkh.android.myfavcars.SharedViewModel" />
+
+        <variable
+            name="detailsViewModel"
+            type="com.walidkh.android.myfavcars.details.DetailsViewModel" />
+    </data>
+
+    <!-- use of constraint layout to arrange the views with constrains -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detailsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".details.AddCarFragment">
+
+
+        <EditText
+            android:id="@+id/editTextTextCarName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:autofillHints=""
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:labelFor="@id/carNameLabel"
+            android:text="@={sharedViewModel.car.name}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/carNameLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/carNameAddLabel"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextTextCarName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextTextCarName" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="101dp" />
+
+        <Button
+            android:id="@+id/confirmBtnId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> detailsViewModel.onConfirmButtonNavigation()}"
+            android:text="@string/confirm_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cancelBtnId" />
+
+        <Button
+            android:id="@+id/cancelBtnId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:onClick="@{() -> detailsViewModel.onCancelButtonNavigation()}"
+            android:text="@string/cancel_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/confirmBtnId"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/carBrandLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/car_brand_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carNameLabel" />
+
+        <EditText
+            android:id="@+id/editTextTextCarBrand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:inputType="textPersonName"
+            android:text="@={sharedViewModel.car.brand}"
+            app:layout_constraintBottom_toBottomOf="@+id/carBrandLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/carBrandLabel" />
+
+        <TextView
+            android:id="@+id/carTypeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/car_type_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carBrandLabel" />
+
+        <Spinner
+            android:id="@+id/spinnerCarType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:entries="@array/carTypes"
+            android:selectedItemPosition="@={BindingUtils.carTypeToPosition(sharedViewModel.car.type)}"
+            app:layout_constraintBottom_toBottomOf="@+id/carTypeLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/carTypeLabel" />
+
+        <TextView
+            android:id="@+id/carPowerLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/car_horse_power_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carTypeLabel" />
+
+        <EditText
+            android:id="@+id/editTextTextCarPower"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:inputType="number"
+            android:text="@={`` + sharedViewModel.car.horsePower}"
+            app:layout_constraintBottom_toBottomOf="@+id/carPowerLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/carPowerLabel" />
+
+        <TextView
+            android:id="@+id/carDescriptionLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:text="@string/car_description_label"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/carPowerLabel" />
+
+        <EditText
+            android:id="@+id/editTextTextCarDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:ems="10"
+            android:backgroundTint="@color/colorPrimary"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:inputType="textPersonName"
+            android:text="@={sharedViewModel.car.description}"
+            app:layout_constraintBottom_toBottomOf="@+id/carDescriptionLabel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/carDescriptionLabel" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
