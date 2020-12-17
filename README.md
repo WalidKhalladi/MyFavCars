@@ -1,6 +1,6 @@
 # MyFavCars
 
-This is a very simple android application to demonstrate the use of the viewBindings,navigation component. For the sake of simplicity, SharedPreferences is used to store the user data.
+This is a very simple android application to demonstrate the use of app Navigation and app Architecture using ViewModels and LiveData. For the sake of simplicity, SharedPreferences is used to store the user data.
 
 ## Getting Started
 
