@@ -10,15 +10,11 @@ class LoginViewModel(
     private val preferencesProvider: PreferencesProvider
 ) : ViewModel() {
 
-    val user = User()
+    val user : User = User()
 
     private val _showError = MutableLiveData<String>()
     val showError : LiveData<String>
         get() = _showError
-
-    private val isNewUser: Boolean by lazy {
-        preferencesProvider.isNewUser(user)
-    }
 
     private val _navigateToWelcomePage = MutableLiveData<Boolean>()
     val navigateToWelcomePage : LiveData<Boolean>
@@ -31,10 +27,11 @@ class LoginViewModel(
 
     fun navigateToWelcomePage() {
         if (isFormValid()) {
-            if (!isNewUser) {
+            if (!isNewUser()) {
                 _showError.value = "User already exists, please sign in"
             } else {
                 saveNewUser()
+                setUserConnected()
                 _navigateToWelcomePage.value = true
             }
         }
@@ -42,13 +39,15 @@ class LoginViewModel(
 
     fun navigateToWelcomePageComplete() {
         _navigateToWelcomePage.value = false
+        _showError.value = ""
     }
 
     fun navigateToCarsList() {
         if (isFormValid()) {
-            if (isNewUser) {
+            if (isNewUser()) {
                 _showError.value = "user does not exist, please sign up first"
             } else {
+                setUserConnected()
                 _navigateToCarsList.value = true
             }
         }
@@ -56,10 +55,19 @@ class LoginViewModel(
 
     fun navigateToCarsListComplete() {
         _navigateToCarsList.value = false
+        _showError.value = ""
+    }
+
+    private fun isNewUser(): Boolean {
+        return preferencesProvider.isNewUser(user)
     }
 
     private fun saveNewUser() {
         preferencesProvider.saveUser(user)
+    }
+
+    private fun setUserConnected() {
+        preferencesProvider.isUserConnected(true)
     }
 
     private fun isFormValid(): Boolean {
@@ -71,9 +79,5 @@ class LoginViewModel(
 
             false
         }
-    }
-
-    override fun onCleared() {
-        super.onCleared()
     }
 }
