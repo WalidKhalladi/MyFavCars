@@ -9,6 +9,7 @@
             type="com.walidkh.android.myfavcars.info.WelcomeViewModel" />
     </data>
 
+    <!-- use of constraint layout to arrange the views with constrains -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -51,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:backgroundTint="#FF0000"
+            android:backgroundTint="@color/colorPrimary"
             android:onClick="@{() -> welcomeViewModel.navigateToInstructionsPage()}"
             android:text="@string/welcome_btn_text"
             app:layout_constraintBottom_toBottomOf="parent"

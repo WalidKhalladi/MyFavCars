@@ -8,6 +8,7 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <!-- place the appbar and the fragment container vertically -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -27,7 +28,7 @@
 
             </com.google.android.material.appbar.AppBarLayout>
 
-
+            <!-- fragment container that will hold the fragments -->
             <androidx.fragment.app.FragmentContainerView
                 android:id="@+id/main_nav_host"
                 android:layout_width="match_parent"
