@@ -59,6 +59,18 @@ class AddCarFragment : Fragment() {
             }
         })
 
+        detailsViewModel.onCancel.observe(viewLifecycleOwner, Observer {
+            it?.let {
+                if (it) {
+                    this.findNavController()
+                        .navigate(
+                            AddCarFragmentDirections.actionAddCarFragmentToCarsListFragment("")
+                        )
+                    detailsViewModel.onCancelButtonNavigationComplete()
+                }
+            }
+        })
+
         return bindingView.root
     }
 }
