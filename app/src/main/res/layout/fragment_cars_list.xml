@@ -13,7 +13,12 @@
             type="com.walidkh.android.myfavcars.cars.CarsListViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!--
+     since we have simple view (ScrollView and Floating button)
+     we can use FrameLayout to arrange them.
+     it avoids also nested layouts for better performance
+     -->
+    <FrameLayout
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -21,13 +26,10 @@
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             tools:context=".cars.CarsListFragment">
 
-            <!-- to hold a list of cars vertically -->
+            <!-- To arrange the views vertically, we use LinearLayout
+             with orientation 'vertical' -->
             <LinearLayout
                 android:id="@+id/cars_list_container"
                 android:layout_width="match_parent"
@@ -42,11 +44,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
+            android:layout_gravity="bottom|end"
             android:onClick="@{() -> carsListViewModel.navigateToAddPage()}"
             app:backgroundTint="@color/colorPrimary"
             app:srcCompat="@drawable/ic_add_24"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:contentDescription="@string/add_car_btn_description" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 </layout>

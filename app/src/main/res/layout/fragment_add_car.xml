@@ -15,7 +15,10 @@
             type="com.walidkh.android.myfavcars.details.DetailsViewModel" />
     </data>
 
-    <!-- use of constraint layout to arrange the views with constrains -->
+    <!--
+     use of constraint layout to arrange the views with constrains
+     it avoids also nested layouts for better performance
+     -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/detailsContainer"
         android:layout_width="match_parent"

@@ -14,6 +14,10 @@
         app:cardElevation="6dp"
         app:cardUseCompatPadding="true">
 
+        <!--
+         use of constraint layout to arrange the views with constrains
+         it avoids also nested layouts for better performance
+         -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
