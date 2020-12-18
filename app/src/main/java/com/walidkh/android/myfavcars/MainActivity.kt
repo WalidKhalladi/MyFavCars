@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var toolbar: Toolbar
     lateinit var navController: NavController
     lateinit var preferencesProvider: PreferencesProvider
+    lateinit var menuItem: MenuItem
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,10 +45,12 @@ class MainActivity : AppCompatActivity() {
                 R.id.carsListFragment -> {
                     binding.appBar.visibility = VISIBLE
                     binding.toolbar.title = "Cars list"
+                    menuItem.isVisible = true
                 }
                 R.id.addCarFragment -> {
                     binding.appBar.visibility = VISIBLE
                     binding.toolbar.title = "Add new car"
+                    menuItem.isVisible = false
                 }
                 else -> binding.appBar.visibility = GONE
             }
@@ -57,6 +60,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.popup_menu, menu)
+
+        menuItem = menu.findItem(R.id.logoutId) as MenuItem
 
         return true
     }
