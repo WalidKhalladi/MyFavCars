@@ -11,10 +11,6 @@
             type="com.walidkh.android.myfavcars.login.LoginViewModel" />
     </data>
 
-    <!--
-     use of constraint layout to arrange the views with constrains
-     it avoids also nested layouts for better performance
-     -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/loginContainer"
         android:layout_width="match_parent"

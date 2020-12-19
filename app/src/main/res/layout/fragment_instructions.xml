@@ -9,10 +9,6 @@
             type="com.walidkh.android.myfavcars.info.InstructionsViewModel" />
     </data>
 
-    <!--
-     use of constraint layout to arrange the views with constrains
-     it avoids also nested layouts for better performance
-     -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
